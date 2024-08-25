@@ -20,12 +20,19 @@ public class UserController {
     public String join(UserRequest. JoinDTO reqDTO){
         userService.join(reqDTO);
 //        System.out.println("reqDTO = " + reqDTO);
-        return "user/login-form";
+        return "redirect:/login-form";
     }
 
     @GetMapping("/login-form")
     public String loginForm() {
         return "user/login-form";
+    }
+
+    @PostMapping("/login")
+    public String login(UserRequest. LoginDTO reqDTO){
+        userService.login(reqDTO);
+        System.out.println("reqDTO = " + reqDTO);
+        return "redirect:/";
     }
 
     @GetMapping("/user/update-form")
