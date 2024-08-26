@@ -19,4 +19,15 @@ public class BoardRequest {
             this.board = board;
         }
     }
+
+    @Data
+    public static class BoardDTO{
+        private Integer id;
+        private String title;
+
+        public BoardDTO(Integer id, String title) {
+            this.id = id;
+            this.title = title;
+        }
+    }
 }

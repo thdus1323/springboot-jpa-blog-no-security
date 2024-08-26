@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import shop.mtcoding.blog.user.User;
 
+import java.util.List;
+
 @Slf4j // 코드에 주석
 @RequiredArgsConstructor
 @Controller
@@ -19,7 +21,9 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/" )
-    public String index() {
+    public String index(Model model) {
+        List<BoardRequest.BoardDTO> boards = boardService.findAll();
+        model.addAttribute("boards", boards);
         return "index";
     }
 
