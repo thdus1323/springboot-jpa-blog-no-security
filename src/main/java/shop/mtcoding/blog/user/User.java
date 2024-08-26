@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import jdk.jfr.Timestamp;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
+import shop.mtcoding.blog.board.Board;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Table(name = "user_tb")
 @Entity
@@ -26,4 +28,7 @@ public class User {
 
     @CreatedDate
     private LocalDateTime createdAt;
+
+    @OneToMany
+    private List<Board> boards;
 }

@@ -13,4 +13,5 @@ public interface UserRepository extends JpaRepository <User, Integer> {
     //로그인
     //Select * from user where username=? and password =?;
    Optional<User>  findByUsernameAndPassword(String username, String password);
+
 }
